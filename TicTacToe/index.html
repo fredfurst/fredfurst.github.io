@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+	<head>
+		<title>SVG-based Tic-Tac-Toe Game!</title>
+	</head>
+	<style>
+	</style>
+	<body>
+		<div id="game">
+			<svg id="display" width="600" height="600" viewBox="0 0 600 600"
+			stroke-width="5px" stroke="black" onclick="jogou(event)">
+				<line x1="200" y1="0" x2="200" y2="600"></line>
+				<line x1="400" y1="0" x2="400" y2="600"></line>
+				<line x1="0" y1="200" x2="600" y2="200"></line>
+				<line x1="0" y1="400" x2="600" y2="400"></line>
+			</svg>
+		</div>
+		<h1>SVG Tic-Tac-Toe Game v0.1</h1>
+		<button id="newGame" onclick="clearGame()">Click here to start a New Game!</button>
+		<p>Just Tap or Click to play!</p>
+		<p id="mostra"></p>
+		<h2>First with three in a row, column or diagonal, wins!</h2>
+		<script>
+			var playerTurn = 'X'; // either X or O
+			var tabuleiro = [ 0, 0, 0,
+							  0, 0, 0,
+							  0, 0, 0, ];
+			var pos = 0;
+			// document.addEventListener('DOMContentLoaded', () => {});
+			function testarVitoria(player) {
+				let testes = [
+					[ 0, 1, 2, ],
+					[ 3, 4, 5, ],
+					[ 6, 7, 8, ],
+					[ 0, 3, 6, ],
+					[ 1, 4, 7, ],
+					[ 2, 5, 8, ],
+					[ 0, 4, 8, ],
+					[ 6, 4, 2, ],
+				];
+				for (let t of testes) {
+					if (tabuleiro[t[0]] === player &&
+						tabuleiro[t[1]] === player &&
+						tabuleiro[t[2]] === player) {
+							console.log('Jogador '+player+' ganhou!');
+							el = document.querySelector("#mostra");
+							el.innerHTML = 'Jogador '+player+' ganhou!';
+							elsvg = document.querySelector('#display');
+							elsvg.onclick = null;
+					}
+				}
+			}
+			function clearGame() {
+				tabuleiro = [ 0, 0, 0,
+							  0, 0, 0,
+							  0, 0, 0, ];
+				elsvg = document.querySelector('#display');
+				elsvg.innerHTML = '<line x1="200" y1="0" x2="200" y2="600"></line><line x1="400" y1="0" x2="400" y2="600"></line><line x1="0" y1="200" x2="600" y2="200"></line><line x1="0" y1="400" x2="600" y2="400"></line>';
+				el = document.querySelector("#mostra");
+				el.innerHTML = '';
+				elsvg = document.querySelector('#display');
+				elsvg.onclick = () => { jogou(event) };
+			}
+			function desenhar_X(xc, yc) {
+				elsvg = document.querySelector('#display');
+				el1 = document.createElementNS('http://www.w3.org/2000/svg','line');
+				el1.setAttribute('x1', `${xc-35}`);
+				el1.setAttribute('y1', `${yc-35}`);
+				el1.setAttribute('x2', `${xc+35}`);
+				el1.setAttribute('y2', `${yc+35}`);
+				el1.setAttribute('stroke', 'black');
+				el1.setAttribute('stroke-width', '5px');
+				elsvg.appendChild(el1);
+				el2 = document.createElementNS('http://www.w3.org/2000/svg','line');
+				el2.setAttribute('x1', `${xc-35}`);
+				el2.setAttribute('y1', `${yc+35}`);
+				el2.setAttribute('x2', `${xc+35}`);
+				el2.setAttribute('y2', `${yc-35}`);
+				el2.setAttribute('stroke', 'black');
+				el2.setAttribute('stroke-width', '5px');
+				elsvg.appendChild(el2);
+			}
+			function desenhar_O(xc, yc) {
+				el = document.createElementNS('http://www.w3.org/2000/svg','circle');
+				el.setAttribute('cx', `${xc}`);
+				el.setAttribute('cy', `${yc}`);
+				el.setAttribute('r', '35');
+				el.setAttribute('stroke', 'black');
+				el.setAttribute('stroke-width', '5px');
+				elsvg = document.querySelector('#display');
+				elsvg.appendChild(el);
+			}
+			function jogou(e) {
+				if (e.clientX < 200) {
+					if (e.clientY < 200 ) {
+						if (tabuleiro[0] === 0) {
+							pos = [ 100, 100 ];
+							tabuleiro[0] = playerTurn;
+						}
+					} else if (e.clientY > 200 && e.clientY < 400) {
+						if (tabuleiro[1] === 0) {
+							pos = [ 100, 300 ];
+							tabuleiro[1] = playerTurn;
+						}
+					} else if (e.clientY > 400) {
+						if (tabuleiro[2] === 0) {
+							pos = [ 100, 500 ];
+							tabuleiro[2] = playerTurn;
+						}
+					}
+				} else if (e.clientX > 200 && e.clientX < 400) {
+					if (e.clientY < 200 ) {
+						if (tabuleiro[3] === 0) {
+							pos =  [ 300, 100 ];
+							tabuleiro[3] = playerTurn;
+						}
+					} else if (e.clientY > 200 && e.clientY < 400) {
+						if (tabuleiro[4] === 0) {
+							pos = [ 300, 300 ];
+							tabuleiro[4] = playerTurn;
+						}
+					} else if (e.clientY > 400) {
+						if (tabuleiro[5] === 0) {
+							pos = [ 300, 500 ];
+							tabuleiro[5] = playerTurn;
+						}
+					}
+				} else if (e.clientX > 400) {
+					if (e.clientY < 200 ) {
+						if (tabuleiro[6] === 0) {
+							pos = [ 500, 100 ];
+							tabuleiro[6] = playerTurn;
+						}
+					} else if (e.clientY > 200 && e.clientY < 400) {
+						if (tabuleiro[7] === 0) {
+							pos = [ 500, 300 ];
+							tabuleiro[7] = playerTurn;
+						}
+					} else if (e.clientY > 400) {
+						if (tabuleiro[8] === 0) {
+							pos = [ 500, 500 ];
+							tabuleiro[8] = playerTurn;
+						}
+					}
+				}
+				if (pos !== 0) {
+					if (playerTurn === 'X') {
+						desenhar_X(pos[0], pos[1]);
+						testarVitoria('X');
+						playerTurn = 'O';
+					} else {
+						desenhar_O(pos[0], pos[1]);
+						testarVitoria('O');
+						playerTurn = 'X';
+					}
+					pos = 0;
+				}
+			}
+		</script>
+	</body>
+</html>

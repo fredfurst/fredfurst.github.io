@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <title>App de Amigo Oculto</title>
+        <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+        <script src="ao.js">
+        </script>
+        <style>
+            #panel {
+                visibility: visible;
+                height: auto;
+            }
+            #digitacao {
+                visibility: hidden;
+                height: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <span>
+                <a href="guntodo.html">To Do</a>
+            </span>
+            <span>
+                <a href="amigo_oculto.html">Amigo Oculto</a>
+            </span>
+        </nav>
+        <h1>Amigo Oculto</h1>
+        <p>v0.1 by Fred Furst</p>
+        <p>Um app distribu&iacute;do e baseado em tecnologia similar a blockchain (vis-a-vis GunDB).</p>
+        <div id="panel">
+            <h2>Criar usu&aacute;rio</h2>
+            <input type="text" id="register">
+            <input type="password" id="newPass">
+            <button onclick="fazRegister(event)">Criar novo usu&aacute;rio</button>
+            <h2>Login</h2>
+            <form>
+                <span>
+                    <input type="text" id="login">
+                    <input type="password" id="passw">
+                    <button onclick="fazLogin(event)">Login</button>
+                </span>
+            </form>
+        </div>
+        <button onclick="fazLogout(event)">Logout</button>
+        <div id="digitacao">
+            <h2>Digite seu nome:</h2>
+            <input type="text" id="name">
+            <h3>Coment&aacute;rio ou sugest&otilde;es em texto:</h3>
+            <textarea rows="3" cols="60" id="comments" onchange="atualizaTexto(this)"></textarea>
+            <p id="textocomentarios"></p>
+            <h3>Lista de Livros:</h3>
+            <h4>Adicionar livro:</h4>
+            <input type="text" id="titulo" placeholder="T&iacute;tulo">
+            <input type="text" id="autor" placeholder="Autor">
+            <button onclick="adicionaLista()">+</button>
+            <ul id="lista">
+            </ul>
+            <button onclick="postagem()">Postar</button>
+            <button onclick="deleta()">Deletar</button>
+        </div>
+        <h2>Como funciona?</h2>
+        <p>Detalhes t&eacute;cnicos &agrave; parte, trata-se de tecnologia relativmente antiga, mas
+            que funciona, e que &eacute; segura</p>
+        <h1>Feliz Natal!</h1>
+        <p>Fiz pra n&oacute;s!</p>
+        <h2>Sim, &eacute; uma rede social</h2>
+        <p>N&atilde;o, n&atilde;o invade a privacidade</p>
+        <h3>Postagens</h3>
+        <button onclick="atualizaPostagens('show me!')">Atualizar</button>
+        <div id="outros">
+
+        </div>
+    </body>
+</html>
