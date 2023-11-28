@@ -1,7 +1,7 @@
 //
 // yay!
 //
-var gun = GUN();
+var gun = GUN({peers: ['http://54.39.143.211:8000/gun']});
 var nome = '';
 var comentarios = '';
 var listaLivros = Array();
