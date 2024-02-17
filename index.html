@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Music and Ritornelles for a Long and Prosperous Life</title>
+        <title>&int; GdE - Guia do Engenheiro</title>
         <link rel="icon" type="image/x-icon" href="/favicon.png">
         <script type="text/javascript" src="index.js">
         </script>
@@ -44,11 +44,26 @@
                 margin: 20px;
                 padding: 20px;
             }
+            blockquote {
+                background: rgb(230,230,255, 0.3);
+                box-shadow: rgb(100, 100, 100, 0.4) 5px 5px;
+                color: rgb(0, 0, 0);
+                border-width: 3px;
+                border-radius: 5px;
+                padding: 15px 15px 15px 15px;
+            }
             div {
+                background: rgb(30,30,55, 0.3);
                 box-shadow: rgb(0, 0, 0, 0.4) 5px 5px;
                 border-width: 3px;
                 border-radius: 25px;
                 padding: 15px 15px 15px 15px;
+            }
+            span {
+                box-shadow: rgb(0,40,0,0.3) 3px 3px;
+                border-width: 6px;
+                border-radius: 5px;
+                padding: 5px 5px 5px 5px;
             }
             .readingPad {
             }
@@ -57,17 +72,61 @@
     <body>
         <nav>
             <span>
-            <a href="guntodo.html">To Do</a>
+                <a href="guntodo.html">To Do</a>
             </span>
             <span>
-            <a href="amigo_oculto.html">Amigo Oculto</a>
+                <a href="amigo_oculto.html">Amigo Oculto</a>
+            </span>
+            <span>
+                <a href="4emLinha/">4 em Linha</a>
+            </span>
+            <span>
+                <a href="letras/">Letras</a>
             </span>
         </nav>
         <div>
-            <h1>Wellness Engineering, to the medicinal Air in G</h1>
-            <blockquote>Written by Frederico Furst Bittencourt, in November 16, 2023.</blockquote>
+            <h1>A Coisa Mais Danada</h1>
+            <blockquote>por Frederico Bittencourt,
+            desde Fevereiro de 2024 do Nosso Senhor até <b id='dataHoje'></b>.</blockquote>
+            <p>Raramente ocorre &agrave; pessoa questionar se aquilo que ela pr&oacute;pria v&ecirc;, se aquilo
+                que ela pr&oacute;pria escuta, e se aquilo que ela mesma pensa &eacute; verdadeiro, ou se a
+                aceita&ccedil;&atilde;o cega lhe &eacute; ben&eacute;fica ou mal&eacute;fica.</p>
         </div>
-        <div class="readingPad">
+        <h1>O Caro&ccedil;o do Espa&ccedil;o de Vetores</h1>
+        <button id="brp1" onclick="switchVisibility(rp1)">Hide</button>
+        <div class="readingPad" id="rp1">
+            <h2>Introdu&ccedil;&atilde;o</h2>
+            <p>Credit where credit is due: Master Choa Kok Sui, the Alexander technique and talks with the Professor.</p>
+            <h3>What is Wellness</h3>
+            <p>A simple description, as per the canon of polyvagal theory we might be
+            destroying our own capacity for wellbeing through a conditioned response
+            which then has become engrained 
+            <h4>:q!</h4>
+            <h5>Alice in Wonderland</h5>
+            <p>There is an aspect of inherent size in proportion, as well as self-proportion
+                embedded in how a human body perceives itself, because there are multiple
+                inputs involved. I know the English for proprioception, interoception,
+                spatioception, and equilibrioception. I otherwise had to learn these as skills.
+                They may have been obvious to some, but they'd most likely be 
+            </p>
+            <h3>What is Engineering</h3>
+            <h3>On the matter of doing cool sh1t</h3>
+            <p>First, you must take your time and watch this
+                <a href="https://www.youtube.com/watch?v=OoJsPvmFixU&ab_channel=SmarterEveryDay">video
+                    of a talk at NASA</a>. My point here is we all know we don't want a 10
+                minute cap on the time of a doctor's appointment. Especially if you do like
+            this particular doctor enough to value his or her opinion. You want them to actually
+            have sufficient time and attention demonstrated, as if they actually were paying
+            attention. </p>
+            <p>We all do seem to know in an almost instinctual level about most of the
+                needs we would prefer see satisfied. And still, most humans don't live enough to see
+                themselves grow old, and that is a tragedy.</p>
+
+            <h2>Straying further from God</h2>
+            <p>No, we do not take for granted that biblical references gather attention, and so I must
+                now wonder about.
+            </p>
+            <h3></h3>
             <h2>On the Subject Matters at Hand</h2>
             <p>Engineering is seldom seen as a subject of interest to those inhabiting
                 a human body. Although most of the human body functions in a manner which
@@ -106,7 +165,9 @@
                 weight and change the moods by mere mention.
             </p>
         </div>
-        <div class="readingPad">
+        <h1>A T&eacute;cnica de Alexander</h1>
+        <button id="brp2" onclick="switchVisibility(rp2)">Hide</button>
+        <div class="readingPad" id="rp2">
             <h2>On the Matter of Personal Accounts</h2>
             <p>At this day and age, it is clear that many words have been acquiring a new
                 meaning, which may or may not be accompanied by a particular actual
@@ -121,9 +182,11 @@
                 <a href="4emLinha">Four in a Row</a></p>
             <h3>At a broader scale</h3>
             <p>Many of us aren't.</p>
-            <input type="checkbox">
+            <input id="" type="checkbox">
         </div>
-        <div class="readingPad">
+        <h1>A F&iacute;sica da Cura Pr&acirc;nica</h1>
+        <button id="brp3" onclick="switchVisibility(rp3)">Hide</button>
+        <div class="readingPad" id="rp3">
             <h2>As per Alexander</h2>
             <p>Was a particularly tough business to catch up to. Many a man
                 had been helped by him, or claimed as much. Understanding and applying
@@ -158,7 +221,22 @@
                     el.id = 'inpchk'+i;
                     pads[i].appendChild(el);
                 }
+                dH = document.getElementById('dataHoje');
+                dH.innerHTML = new Date();
             });
+            function switchVisibility(el) {
+                if(el.style.visibility == 'visible') {
+                    console.log('is visible');
+                    el.style.visibility = 'hidden';
+                    el.style.height = 0;
+                    this.innerHTML = 'Show';
+                } else {
+                    console.log('is hidden');
+                    el.style.visibility = 'visible';
+                    el.style.height = 'auto';
+                    this.innerHTML = 'Hide';
+                }
+            }
         </script>
     </body>
 </html>
